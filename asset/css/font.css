@@ -41,18 +41,18 @@ h4 {
 
 p {
     font-family: 'Noto Sans SC', 'Noto Sans', sans-serif;
-    font-size: 1.2vw;
+    font-size: 2.5vw;
     text-indent: 2.5vw;
     color: aliceblue;
 }
 
 p::first-letter {
     text-shadow: 1px 1px rgb(255, 233, 0, 0.2);
-    font-size: 2vw;
+/*    font-size: 2vw;*/
 }
 
 p::first-line {
-    margin-top: 2vh;
+/*    margin-top: 2vh;*/
 }
 
 strong {
