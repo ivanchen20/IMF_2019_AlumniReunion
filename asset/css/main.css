@@ -1,0 +1,281 @@
+body {
+    background: linear-gradient(to top, rgba(76, 76, 76, 1) 0%, rgba(89, 89, 89, 1) 12%, rgba(102, 102, 102, 1) 25%, rgba(71, 71, 71, 1) 39%, rgba(44, 44, 44, 1) 50%, rgba(0, 0, 0, 1) 51%, rgba(17, 17, 17, 1) 60%, rgba(43, 43, 43, 1) 76%, rgba(28, 28, 28, 1) 91%, rgba(19, 19, 19, 1) 100%);
+}
+
+/*占滿版面*/
+.full {
+    height: 100vh;
+}
+
+/*用來包內容物置中*/
+#cover {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*修正bt4 row超版*/
+.row {
+    margin: 0;
+}
+
+/***animation and effect***/
+/*標題閃爍*/
+.shining_highlight {
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 100px;
+    color: rgba(255, 215, 0, 0.6);
+    -webkit-background-clip: text;
+    -webkit-animation-name: shine_hl;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes shine_hl {
+    0% {
+        background-position: top left;
+        opacity: 0.75;
+    }
+
+    30% {
+        background-position: top right;
+        opacity: 1;
+    }
+
+    50% {
+        background-position: top right;
+        opacity: 1
+    }
+
+    100% {
+        background-position: top left;
+        opacity: 0.75;
+    }
+}
+.shining {
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 100px;
+    color: rgba(255, 215, 0, 0.6);
+    -webkit-background-clip: text;
+    -webkit-animation-name: shine;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes shine {
+    0% {
+        background-position: top left;
+        opacity: 0.15;
+    }
+
+    30% {
+        background-position: top right;
+        opacity: 1
+    }
+
+    50% {
+        background-position: top right;
+        opacity: 1
+    }
+
+    100% {
+        background-position: top left;
+        opacity: 0.15;
+    }
+}
+
+/*捲動提示*/
+@keyframes arrows {
+    to {
+        transform: translateY(100%) rotate(135deg);
+        opacity: 0;
+    }
+}
+
+#indicator_scroll {
+    position: fixed;
+    z-index: 30;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#indicator {
+    margin: 0 auto;
+    z-index: 35;
+    margin-bottom: 2%;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid rgb(255, 223, 0);
+    border-left: none;
+    border-bottom: none;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    -webkit-animation: arrows 2.4s 0.3s infinite forwards;
+    animation: arrows 2.4s 0.3s infinite forwards;
+    animation-iteration-count: 3;
+}
+
+/*黑膠NavBar*/
+.vinyl {
+    width: 120px;
+    height: 120px;
+    left: 20px;
+    top: 20px;
+    position: fixed;
+    z-index: 50;
+    background: url(../img/Vinyl3.png) top center no-repeat;
+    background-size: cover;
+    animation: spin 10s linear infinite;
+    /* initially paused */
+    animation-play-state: paused;
+}
+
+.vinyl:hover {
+    /* running when hovering */
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+/*標題後方框*/
+#trect {
+    fill: transparent;
+    stroke-width: 8px;
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 0;
+    stroke: #FAFAD2;
+    /*   transform: rotateY(180deg); */
+    transform-origin: 100% 0%;
+
+    -webkit-animation: 3s draw linear forwards;
+    animation: 3s draw linear forwards;
+    animation-play-state: paused;
+}
+
+#twrap {
+    margin: 0 auto;
+    position: fixed;
+    /*    z-index: -5;*/
+    top: 12vh;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 2;
+        stroke-width: 8px;
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        stroke-dashoffset: 3990;
+        stroke-width: 0px;
+        transform: rotateZ(90deg);
+    }
+}
+
+#twrap:hover #trect {
+    /*
+    -webkit-animation: 3s draw linear forwards;
+    animation: 3s draw linear forwards;
+*/
+    animation-play-state: running;
+}
+
+/*上浮動畫*/
+.slideanim {
+    visibility: hidden;
+    margin-bottom: 3vh;
+}
+
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+
+/*左方顯現動畫*/
+.appearanim {
+    visibility:hidden;
+}
+.appearanim.appear {                  
+    visibility: visible;                  
+    animation: appear 1s;
+    -webkit-animation: appear 1s;
+}
+.appearanim.disappear {                                    
+    animation: disappear 1s;
+    -webkit-animation: disappear 1s;
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+}
+
+@-webkit-keyframes disappear {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+}
